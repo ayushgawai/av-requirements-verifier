@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.16)
+project(avrv_metrics CXX)
+set(CMAKE_CXX_STANDARD 17)
+add_executable(avrv_metrics avrv_metrics.cpp)
+add_executable(test_metrics test_metrics.cpp)
+enable_testing()
+add_test(NAME metrics COMMAND test_metrics)

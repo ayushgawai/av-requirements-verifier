@@ -1,0 +1,398 @@
+# Requirement catalog. Fields: id, description, metric, threshold, comparator (gte|lte), agg (min|max|p95|mean), severity, blocking, unit
+requirements:
+  - id: REQ-001
+    description: Minimum following gap to lead vehicle
+    metric: min_gap_m
+    threshold: 5.0
+    comparator: gte
+    agg: min
+    severity: critical
+    blocking: true
+    unit: m
+  - id: REQ-002
+    description: Time-to-collision floor (fleet minimum)
+    metric: min_ttc_s
+    threshold: 2.5
+    comparator: gte
+    agg: min
+    severity: critical
+    blocking: true
+    unit: s
+  - id: REQ-003
+    description: Time-to-collision p95 scenario minimum
+    metric: min_ttc_s
+    threshold: 4.0
+    comparator: gte
+    agg: p95
+    severity: major
+    blocking: false
+    unit: s
+  - id: REQ-004
+    description: Stop-line violations per scenario (max)
+    metric: stop_violation
+    threshold: 0.0
+    comparator: lte
+    agg: max
+    severity: critical
+    blocking: true
+    unit: count
+  - id: REQ-005
+    description: Hard-brake rate (decel < -4 m/s2 fraction)
+    metric: hard_brake_rate
+    threshold: 0.02
+    comparator: lte
+    agg: mean
+    severity: major
+    blocking: true
+    unit: fraction
+  - id: REQ-006
+    description: Maximum absolute lateral jerk
+    metric: max_lat_jerk_mps3
+    threshold: 2.0
+    comparator: lte
+    agg: max
+    severity: major
+    blocking: false
+    unit: m/s3
+  - id: REQ-007
+    description: Maximum lane-keeping offset
+    metric: max_lane_offset_m
+    threshold: 0.35
+    comparator: lte
+    agg: max
+    severity: critical
+    blocking: true
+    unit: m
+  - id: REQ-008
+    description: Pedestrian clearance minimum
+    metric: min_ped_clearance_m
+    threshold: 1.5
+    comparator: gte
+    agg: min
+    severity: critical
+    blocking: true
+    unit: m
+  - id: REQ-009
+    description: Perception detection latency p95
+    metric: p95_perception_latency_ms
+    threshold: 80.0
+    comparator: lte
+    agg: max
+    severity: critical
+    blocking: true
+    unit: ms
+  - id: REQ-010
+    description: End-to-end planning latency p95
+    metric: p95_planning_latency_ms
+    threshold: 100.0
+    comparator: lte
+    agg: max
+    severity: critical
+    blocking: true
+    unit: ms
+  - id: REQ-011
+    description: Perception latency mean budget
+    metric: mean_perception_latency_ms
+    threshold: 60.0
+    comparator: lte
+    agg: max
+    severity: major
+    blocking: false
+    unit: ms
+  - id: REQ-012
+    description: Planning latency mean budget
+    metric: mean_planning_latency_ms
+    threshold: 75.0
+    comparator: lte
+    agg: max
+    severity: major
+    blocking: false
+    unit: ms
+  - id: REQ-013
+    description: Maximum speed in scenarios
+    metric: max_speed_mps
+    threshold: 16.7
+    comparator: lte
+    agg: max
+    severity: major
+    blocking: true
+    unit: m/s
+  - id: REQ-014
+    description: Maximum longitudinal deceleration magnitude
+    metric: max_decel_mps2
+    threshold: 5.0
+    comparator: lte
+    agg: max
+    severity: major
+    blocking: false
+    unit: m/s2
+  - id: REQ-015
+    description: Maximum longitudinal acceleration
+    metric: max_accel_mps2
+    threshold: 3.0
+    comparator: lte
+    agg: max
+    severity: minor
+    blocking: false
+    unit: m/s2
+  - id: REQ-016
+    description: Mean following gap (comfort)
+    metric: mean_gap_m
+    threshold: 8.0
+    comparator: gte
+    agg: mean
+    severity: minor
+    blocking: false
+    unit: m
+  - id: REQ-017
+    description: TTC below 3s frame rate
+    metric: low_ttc_rate
+    threshold: 0.01
+    comparator: lte
+    agg: mean
+    severity: major
+    blocking: false
+    unit: fraction
+  - id: REQ-018
+    description: Lane offset mean absolute
+    metric: mean_abs_lane_offset_m
+    threshold: 0.15
+    comparator: lte
+    agg: max
+    severity: minor
+    blocking: false
+    unit: m
+  - id: REQ-019
+    description: Lateral jerk mean absolute
+    metric: mean_abs_lat_jerk_mps3
+    threshold: 0.8
+    comparator: lte
+    agg: max
+    severity: minor
+    blocking: false
+    unit: m/s3
+  - id: REQ-020
+    description: Pedestrian near-miss rate (clearance < 2m)
+    metric: ped_near_rate
+    threshold: 0.05
+    comparator: lte
+    agg: mean
+    severity: major
+    blocking: false
+    unit: fraction
+  - id: REQ-021
+    description: Minimum gap in cut-in scenarios stays above 4m
+    metric: min_gap_m
+    threshold: 4.0
+    comparator: gte
+    agg: p95
+    severity: major
+    blocking: false
+    unit: m
+  - id: REQ-022
+    description: Perception latency maximum spike
+    metric: max_perception_latency_ms
+    threshold: 150.0
+    comparator: lte
+    agg: max
+    severity: major
+    blocking: false
+    unit: ms
+  - id: REQ-023
+    description: Planning latency maximum spike
+    metric: max_planning_latency_ms
+    threshold: 180.0
+    comparator: lte
+    agg: max
+    severity: major
+    blocking: false
+    unit: ms
+  - id: REQ-024
+    description: Stop-line stopping distance when stopped at red (min headway to line)
+    metric: min_stop_distance_m
+    threshold: 0.3
+    comparator: gte
+    agg: min
+    severity: major
+    blocking: false
+    unit: m
+  - id: REQ-025
+    description: Red-light crossing count fleet total proxy (max per scenario)
+    metric: stop_violation
+    threshold: 0.0
+    comparator: lte
+    agg: mean
+    severity: critical
+    blocking: true
+    unit: count
+  - id: REQ-026
+    description: Hard-brake events per scenario mean
+    metric: hard_brake_rate
+    threshold: 0.05
+    comparator: lte
+    agg: max
+    severity: minor
+    blocking: false
+    unit: fraction
+  - id: REQ-027
+    description: Ego jerk longitudinal comfort (accel change proxy via decel cap)
+    metric: max_decel_mps2
+    threshold: 4.5
+    comparator: lte
+    agg: p95
+    severity: minor
+    blocking: false
+    unit: m/s2
+  - id: REQ-028
+    description: Minimum TTC in 95th percentile scenario (soft floor)
+    metric: min_ttc_s
+    threshold: 3.0
+    comparator: gte
+    agg: mean
+    severity: minor
+    blocking: false
+    unit: s
+  - id: REQ-029
+    description: Lane offset p95 scenario maximum
+    metric: max_lane_offset_m
+    threshold: 0.30
+    comparator: lte
+    agg: p95
+    severity: major
+    blocking: false
+    unit: m
+  - id: REQ-030
+    description: Pedestrian clearance p95 scenario minimum soft target
+    metric: min_ped_clearance_m
+    threshold: 2.0
+    comparator: gte
+    agg: p95
+    severity: minor
+    blocking: false
+    unit: m
+  - id: REQ-031
+    description: Perception latency p95 fleet mean
+    metric: p95_perception_latency_ms
+    threshold: 70.0
+    comparator: lte
+    agg: mean
+    severity: minor
+    blocking: false
+    unit: ms
+  - id: REQ-032
+    description: Planning latency p95 fleet mean
+    metric: p95_planning_latency_ms
+    threshold: 90.0
+    comparator: lte
+    agg: mean
+    severity: minor
+    blocking: false
+    unit: ms
+  - id: REQ-033
+    description: Speed limit compliance headroom (max speed soft)
+    metric: max_speed_mps
+    threshold: 15.5
+    comparator: lte
+    agg: p95
+    severity: minor
+    blocking: false
+    unit: m/s
+  - id: REQ-034
+    description: Following gap p95 scenario minimum
+    metric: min_gap_m
+    threshold: 6.0
+    comparator: gte
+    agg: mean
+    severity: minor
+    blocking: false
+    unit: m
+  - id: REQ-035
+    description: Low-TTC rate fleet maximum
+    metric: low_ttc_rate
+    threshold: 0.03
+    comparator: lte
+    agg: max
+    severity: major
+    blocking: false
+    unit: fraction
+  - id: REQ-036
+    description: Absolute lane offset must never exceed 0.5m
+    metric: max_lane_offset_m
+    threshold: 0.5
+    comparator: lte
+    agg: max
+    severity: critical
+    blocking: true
+    unit: m
+  - id: REQ-037
+    description: Pedestrian clearance must never fall below 1.0m
+    metric: min_ped_clearance_m
+    threshold: 1.0
+    comparator: gte
+    agg: min
+    severity: critical
+    blocking: true
+    unit: m
+  - id: REQ-038
+    description: Perception latency must never exceed 200ms
+    metric: max_perception_latency_ms
+    threshold: 200.0
+    comparator: lte
+    agg: max
+    severity: critical
+    blocking: true
+    unit: ms
+  - id: REQ-039
+    description: Planning latency must never exceed 250ms
+    metric: max_planning_latency_ms
+    threshold: 250.0
+    comparator: lte
+    agg: max
+    severity: critical
+    blocking: true
+    unit: ms
+  - id: REQ-040
+    description: Mean speed sanity (no crawling / deadlock proxy)
+    metric: mean_speed_mps
+    threshold: 3.0
+    comparator: gte
+    agg: min
+    severity: minor
+    blocking: false
+    unit: m/s
+  - id: REQ-041
+    description: Mean speed upper sanity
+    metric: mean_speed_mps
+    threshold: 14.0
+    comparator: lte
+    agg: max
+    severity: minor
+    blocking: false
+    unit: m/s
+  - id: REQ-042
+    description: Stop distance maximum overshoot proxy (stopped too far)
+    metric: min_stop_distance_m
+    threshold: 5.0
+    comparator: lte
+    agg: max
+    severity: minor
+    blocking: false
+    unit: m
+  - id: REQ-043
+    description: Hard brake rate p95 scenario
+    metric: hard_brake_rate
+    threshold: 0.04
+    comparator: lte
+    agg: p95
+    severity: major
+    blocking: false
+    unit: fraction
+  - id: REQ-044
+    description: Lateral jerk p95 scenario maximum
+    metric: max_lat_jerk_mps3
+    threshold: 1.8
+    comparator: lte
+    agg: p95
+    severity: minor
+    blocking: false
+    unit: m/s3
